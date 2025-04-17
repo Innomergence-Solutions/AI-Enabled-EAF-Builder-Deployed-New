@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["http://148.113.202.141"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600,
+    "responseHeader": ["Content-Type"]
+  }
+]

@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  fastapi:
+    build: 
+      context: ./backend/src
+      dockerfile: Dockerfile
+    container_name: fastapi_service
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./backend/src:/app
+    depends_on:
+      - node
+  
+  node:
+    build:
+      context: ./backend  # Set the backend folder as the context
+      dockerfile: src/api-server/Dockerfile  # The Dockerfile for the backend
+    container_name: node_backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app  # Mount the entire backend folder to /app
+    environment:
+      - NODE_ENV=development
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react_frontend
+    env_file:
+      - ./frontend/.env
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/app
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - fastapi
+      - node

@@ -1,0 +1,5 @@
+keys.json
+backend/.venv
+/node_modules
+.ssh_config_temp
+.env

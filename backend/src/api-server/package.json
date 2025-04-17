@@ -1,0 +1,38 @@
+{
+    "name": "eaf-ai-backend",
+    "version": "1.0.0",
+    "description": "Backend for the EAF AI agent backend.",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
+        "start": "node server.js"
+    },
+    "author": "Bensly Pierre, Jacob Harris, James Owen",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "babel-jest": "^29.7.0",
+        "jest": "^29.7.0",
+        "supertest": "^7.0.0"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "docxtemplater": "^3.60.0",
+        "express": "^4.21.2",
+        "express-session": "^1.18.1",
+        "firebase-admin": "^13.0.2",
+        "fs": "^0.0.1-security",
+        "jspdf": "^2.5.2",
+        "lru-cache": "^11.0.2",
+        "multer": "^1.4.5-lts.1",
+        "pdf-lib": "^1.17.1",
+        "pizzip": "^3.1.8"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.js$": "babel-jest"
+        }
+    }
+}
